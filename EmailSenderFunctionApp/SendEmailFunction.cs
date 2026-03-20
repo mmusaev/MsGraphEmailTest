@@ -11,9 +11,7 @@ namespace EmailSenderFunctionApp;
 public class SendEmailFunction(ILogger<SendEmailFunction> logger, IEmailService emailService, IRequestParser requestParser)
 {
     [Function("SendEmail")]
-    public async Task<HttpResponseData> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req,
-        CancellationToken cancellationToken)
+    public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req, CancellationToken cancellationToken)
     {
         logger.LogInformation("SendEmail function triggered");
 

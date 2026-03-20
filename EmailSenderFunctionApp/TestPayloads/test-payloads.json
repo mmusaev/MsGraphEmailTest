@@ -1,0 +1,118 @@
+{
+  "testCases": [
+    {
+      "name": "Basic Text Email",
+      "description": "Simple text email with all required fields",
+      "payload": {
+        "to": "recipient@example.com",
+        "subject": "Test Email from Azure Function",
+        "body": "This is a test email sent from Azure Function using Microsoft Graph API.",
+        "isHtml": false,
+        "saveToSentItems": false
+      }
+    },
+    {
+      "name": "HTML Email",
+      "description": "Email with HTML formatting",
+      "payload": {
+        "to": "recipient@example.com",
+        "subject": "HTML Test Email",
+        "body": "<html><body><h1>Hello!</h1><p>This is a <strong>test email</strong> with <em>HTML formatting</em>.</p><ul><li>Item 1</li><li>Item 2</li></ul></body></html>",
+        "isHtml": true,
+        "saveToSentItems": true
+      }
+    },
+    {
+      "name": "Minimal Email",
+      "description": "Email with only required field (To)",
+      "payload": {
+        "to": "recipient@example.com"
+      }
+    },
+    {
+      "name": "Email with Subject Only",
+      "description": "Email with recipient and subject, no body",
+      "payload": {
+        "to": "recipient@example.com",
+        "subject": "Email with no body content"
+      }
+    },
+    {
+      "name": "Long Email",
+      "description": "Email with longer content",
+      "payload": {
+        "to": "recipient@example.com",
+        "subject": "Monthly Report - Azure Function Status",
+        "body": "Dear Team,\n\nThis is your monthly status report.\n\nKey Metrics:\n- Emails sent: 1,234\n- Success rate: 99.8%\n- Average response time: 1.2s\n\nPlease review and let us know if you have any questions.\n\nBest regards,\nAzure Function Bot",
+        "isHtml": false,
+        "saveToSentItems": true
+      }
+    },
+    {
+      "name": "Notification Email (HTML)",
+      "description": "Professional HTML notification email",
+      "payload": {
+        "to": "recipient@example.com",
+        "subject": "System Alert: Action Required",
+        "body": "<!DOCTYPE html><html><head><style>body{font-family:Arial,sans-serif;} .alert{background-color:#f44336;color:white;padding:20px;border-radius:5px;} .content{padding:20px;}</style></head><body><div class='alert'><h2>⚠️ Alert</h2></div><div class='content'><p>This is a system notification.</p><p>Please review the following:</p><ul><li>Item requiring attention</li><li>Action needed by end of day</li></ul><p>Thank you,<br>Automated System</p></div></body></html>",
+        "isHtml": true,
+        "saveToSentItems": true
+      }
+    },
+    {
+      "name": "Empty Body Email",
+      "description": "Email with empty string as body",
+      "payload": {
+        "to": "recipient@example.com",
+        "subject": "Test Empty Body",
+        "body": "",
+        "isHtml": false,
+        "saveToSentItems": false
+      }
+    }
+  ],
+  
+  "invalidTestCases": [
+    {
+      "name": "Missing Required Field (To)",
+      "description": "Should fail validation - no recipient email",
+      "expectedError": "Email recipient is required",
+      "payload": {
+        "subject": "Test",
+        "body": "This should fail"
+      }
+    },
+    {
+      "name": "Invalid Email Format",
+      "description": "Should fail validation - invalid email address",
+      "expectedError": "Invalid email address format",
+      "payload": {
+        "to": "not-an-email",
+        "subject": "Test",
+        "body": "This should fail"
+      }
+    },
+    {
+      "name": "Empty Email Address",
+      "description": "Should fail validation - empty email",
+      "expectedError": "Email recipient is required",
+      "payload": {
+        "to": "",
+        "subject": "Test",
+        "body": "This should fail"
+      }
+    },
+    {
+      "name": "Null Payload",
+      "description": "Should fail - empty request body",
+      "expectedError": "Request body is empty",
+      "payload": null
+    },
+    {
+      "name": "Invalid JSON",
+      "description": "Should fail - malformed JSON",
+      "expectedError": "Invalid JSON format",
+      "payload": "{ invalid json }"
+    }
+  ]
+}

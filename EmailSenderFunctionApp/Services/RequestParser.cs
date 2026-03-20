@@ -14,14 +14,7 @@ public class RequestParser : IRequestParser
             return null;
         }
 
-        try
-        {
-            return JsonSerializer.Deserialize<T>(requestBody, JsonOptions);
-        }
-        catch (JsonException)
-        {
-            throw;
-        }
+        return JsonSerializer.Deserialize<T>(requestBody, JsonOptions);
     }
 
     public bool TryValidate<T>(T instance, out List<ValidationResult> validationResults) where T : class

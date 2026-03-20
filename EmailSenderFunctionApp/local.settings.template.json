@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "AZURE_FUNCTIONS_ENVIRONMENT": "Development",
+    
+    "EmailSettings__SenderMailbox": "your-sender@yourdomain.com",
+    "EmailSettings__DefaultSubject": "Notification",
+    "EmailSettings__SaveToSentItems": "false"
+  },
+  "ConnectionStrings": {}
+}

@@ -1,25 +1,30 @@
+using EmailSenderFunctionApp.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
 using Microsoft.Graph.Users.Item.SendMail;
 
 namespace EmailSenderFunctionApp.Services;
 
-public class EmailService(ILogger<EmailService> logger, GraphServiceClient graphClient) : IEmailService
+public class EmailService(ILogger<EmailService> logger, GraphServiceClient graphClient, IOptions<EmailConfiguration> emailSettings) : IEmailService
 {
-    private const string SenderMailboxKey = "SENDER_MAILBOX";
-    private readonly string _senderMailbox = Environment.GetEnvironmentVariable(SenderMailboxKey)
-        ?? throw new InvalidOperationException($"{SenderMailboxKey} environment variable is not configured");
+    private readonly EmailConfiguration _emailSettings = emailSettings.Value;
 
     public async Task SendEmailAsync(EmailRequest emailRequest, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(emailRequest);
 
-        logger.LogInformation("Sending email from {SenderMailbox} to {Recipient}", _senderMailbox, emailRequest.To);
+        if (string.IsNullOrWhiteSpace(_emailSettings.SenderMailbox))
+        {
+            throw new InvalidOperationException("SenderMailbox is not configured in EmailSettings");
+        }
+
+        logger.LogInformation("Sending email from {SenderMailbox} to {Recipient}", _emailSettings.SenderMailbox, emailRequest.To);
 
         var message = new Message
         {
-            Subject = emailRequest.Subject ?? "Notification",
+            Subject = emailRequest.Subject ?? _emailSettings.DefaultSubject,
             Body = new ItemBody
             {
                 Content = emailRequest.Body ?? string.Empty,
@@ -40,7 +45,9 @@ public class EmailService(ILogger<EmailService> logger, GraphServiceClient graph
             SaveToSentItems = emailRequest.SaveToSentItems
         };
 
-        await graphClient.Users[_senderMailbox].SendMail.PostAsync(sendMailRequest, cancellationToken: cancellationToken);
+        await graphClient.Users[_emailSettings.SenderMailbox].SendMail.PostAsync(
+            sendMailRequest,
+            cancellationToken: cancellationToken);
 
         logger.LogInformation("Email sent successfully to {Recipient}", emailRequest.To);
     }
