@@ -1,0 +1,255 @@
+{
+  "settings": {
+    "components": {
+      "code": false,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-03-19T23:05:16.579231Z",
+  "analysisEndTime": "2026-03-19T23:05:17.9473791Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 4,
+      "incidents": 6,
+      "effort": 8
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 2,
+        "Optional": 0,
+        "Potential": 4,
+        "Information": 0
+      },
+      "category": {
+        "AzureFunctionsUpgrade": 1,
+        "NuGet": 3,
+        "Project": 1,
+        "Api": 1
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 8,
+      "properties": {
+        "appName": "EmailSenderFunctionApp",
+        "projectKind": "AzureFunctions",
+        "frameworks": [
+          "net8.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 2,
+        "numberOfCodeFiles": 2,
+        "linesTotal": 122,
+        "linesOfCode": 122,
+        "totalApiScanned": 281,
+        "minLinesOfCodeToChange": 1,
+        "maxLinesOfCodeToChange": 1
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "3d51e651-3abe-45ea-b7cd-368f476c4b7a",
+          "ruleId": "AzureFunctionsUpgrade.0002",
+          "projectPath": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj"
+          }
+        },
+        {
+          "incidentId": "775fed43-23f7-4ce9-8501-2334e3f71f3e",
+          "ruleId": "NuGet.0002",
+          "projectPath": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker, 1.21.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+              "protected": "Microsoft.Azure.Functions.Worker, 1.21.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0"
+            },
+            "kind": "File",
+            "path": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker, 1.21.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker, 1.21.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker, and replace with new package Microsoft.Azure.Functions.Worker 2.51.0",
+            "label": "Microsoft.Azure.Functions.Worker 1.21.0",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker",
+              "PackageVersion": "1.21.0",
+              "PackageNewVersion": "2.51.0",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "ba45162f-94b9-45a2-8c29-59db144a8b6f",
+          "ruleId": "NuGet.0002",
+          "projectPath": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.1.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+              "protected": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.1.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0"
+            },
+            "kind": "File",
+            "path": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.1.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker.Extensions.Http, 3.1.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Extensions.Http, and replace with new package Microsoft.Azure.Functions.Worker.Extensions.Http 3.3.0",
+            "label": "Microsoft.Azure.Functions.Worker.Extensions.Http 3.1.0",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+              "PackageVersion": "3.1.0",
+              "PackageNewVersion": "3.3.0",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "a9eac832-48ed-4430-9e5a-1ad3c4c9a3aa",
+          "ruleId": "NuGet.0002",
+          "projectPath": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Azure.Functions.Worker.Sdk, 1.17.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+              "protected": "Microsoft.Azure.Functions.Worker.Sdk, 1.17.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7"
+            },
+            "kind": "File",
+            "path": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+            "snippet": "Microsoft.Azure.Functions.Worker.Sdk, 1.17.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+            "protectedSnippet": "Microsoft.Azure.Functions.Worker.Sdk, 1.17.0\n\nRecommendation:\n\nRemove Microsoft.Azure.Functions.Worker.Sdk, and replace with new package Microsoft.Azure.Functions.Worker.Sdk 2.0.7",
+            "label": "Microsoft.Azure.Functions.Worker.Sdk 1.17.0",
+            "properties": {
+              "PackageId": "Microsoft.Azure.Functions.Worker.Sdk",
+              "PackageVersion": "1.17.0",
+              "PackageNewVersion": "2.0.7",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "061a79fc-ba93-4984-98db-52979b1ccd67",
+          "ruleId": "Project.0002",
+          "projectPath": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net8.0\nRecommended target framework: net10.0",
+              "protected": "Current target framework: net8.0\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+            "snippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: net8.0\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "net8.0",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        },
+        {
+          "incidentId": "b9e7585f-504f-4bb2-9612-8b5dc0f02d5c",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: HostBuilder enables ValidateOnBuild/ValidateScopes in development environment ",
+          "projectPath": "EmailSenderFunctionApp\\EmailSenderFunctionApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var host = new HostBuilder()\n    .ConfigureFunctionsWorkerDefaults()\n    .Build();",
+              "protected": "T:Microsoft.Extensions.Hosting.HostBuilder"
+            },
+            "kind": "File",
+            "path": "EmailSenderFunctionApp\\Program.cs",
+            "snippet": "var host = new HostBuilder()\n    .ConfigureFunctionsWorkerDefaults()\n    .Build();",
+            "protectedSnippet": "T:Microsoft.Extensions.Hosting.HostBuilder",
+            "label": "T:Microsoft.Extensions.Hosting.HostBuilder",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/aspnet-core/9.0/hostbuilder-validation.md",
+                "isCustom": false
+              }
+            ],
+            "line": 2,
+            "column": 0
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "AzureFunctionsUpgrade.0002": {
+      "id": "AzureFunctionsUpgrade.0002",
+      "isFeature": true,
+      "description": "When migrating from in-proc to isolated, enable the use of the V2 model for Azure Functions projects and enable Application Insights.",
+      "label": "Enable the use of the V2 model for Azure Functions projects and enable Application Insights.",
+      "severity": "Mandatory",
+      "effort": 3,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2342114",
+          "isCustom": false
+        },
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2341915",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0003": {
+      "id": "Api.0003",
+      "isFeature": false,
+      "description": "API has a behavioral change in selected .NET version: code and binaries may behave differently at runtime without needing recompilation, but the new behavior might be undesirable and require updates.",
+      "label": "Behavioral change in selected .NET version",
+      "severity": "Potential",
+      "effort": 1
+    }
+  }
+}

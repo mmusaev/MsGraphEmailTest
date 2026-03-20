@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EmailSenderFunctionApp/EmailSenderFunctionApp.csproj" />
+  <Project Path="MsGraphEmailTest/MsGraphEmailTest.csproj" />
+</Solution>
