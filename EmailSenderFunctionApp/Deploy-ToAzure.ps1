@@ -2,13 +2,25 @@
 
 Write-Host "Building and deploying EmailSenderFunctionApp..." -ForegroundColor Cyan
 
-# Navigate to project directory
-$projectPath = "EmailSenderFunctionApp"
-Set-Location $projectPath
+# Resolve the project path safely from the script location
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$projectPath = Join-Path $scriptDir "EmailSenderFunctionApp.csproj"
+$publishPath = Join-Path $scriptDir "publish"
+
+if (-not (Test-Path $projectPath)) {
+    Write-Host "Project file not found: $projectPath" -ForegroundColor Red
+    exit 1
+}
+
+Set-Location $scriptDir
+
+if (Test-Path $publishPath) {
+    Remove-Item $publishPath -Recurse -Force
+}
 
 # Build and publish the project
 Write-Host "Building project..." -ForegroundColor Yellow
-dotnet publish --configuration Release --output ./publish
+dotnet publish $projectPath --configuration Release --output $publishPath
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Build failed!" -ForegroundColor Red

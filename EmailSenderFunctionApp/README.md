@@ -111,3 +111,57 @@ curl -X POST "https://<function-app-name>.azurewebsites.net/api/SendEmail?code=<
 - **401 Unauthorized**: Check that Managed Identity has correct Graph API permissions
 - **403 Forbidden**: Verify the sender mailbox exists and the identity has rights to send from it
 - **SENDER_MAILBOX not configured**: Set the environment variable in local.settings.json or Azure App Settings
+
+## Version Tagging
+
+### Create and Push a Release Tag
+
+```powershell
+# Create an annotated tag
+git tag -a v1.0.0 -m "Initial release with User Secrets support"
+
+# Push the tag to remote
+git push origin v1.0.0
+
+# Or push all tags at once
+git push origin --tags
+```
+
+### Tag Naming Convention (Semantic Versioning)
+
+- `v1.0.0` - Major release
+- `v1.1.0` - Minor update (new features)
+- `v1.0.1` - Patch (bug fixes)
+
+### Useful Tag Commands
+
+```powershell
+# List all tags
+git tag
+
+# Show tag details
+git show v1.0.0
+
+# Delete a local tag
+git tag -d v1.0.0
+
+# Delete a remote tag
+git push origin --delete v1.0.0
+
+# Create lightweight tag (no message)
+git tag v1.0.0
+```
+
+### Example Release Tag
+
+```powershell
+git tag -a v1.0.0 -m "Production release
+- Email sending via Microsoft Graph
+- User Secrets configuration
+- IOptions pattern implementation
+- Type-safe configuration
+- Complete test suite
+- Comprehensive documentation"
+
+git push origin v1.0.0
+```
